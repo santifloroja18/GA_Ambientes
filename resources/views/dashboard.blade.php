@@ -30,8 +30,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">Responsable</th>
-                                <th scope="col">Descripcion</th>
-                                <th scope="col">Telefono</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Télefono</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Inicio</th>
                                 <th scope="col">Finalización</th>
@@ -58,31 +58,59 @@
                     </table>
                 </div>
                 <div class="container-table-environment">
-                    <h5 class="title-tables-reservas">Prestamos de ambientes activos.</h5>
-                    <table class="table table-striped" style="font-size: 0.9rem;">
-                        <thead>
+                    <h5 class="title-tables-reservas">Préstamos de ambientes activos.</h5>
+                    <table class="table table-striped text-center" style="font-size: 0.9rem;">
+                        <thead class="">
                             <tr>
                                 <th scope="col">Instructor</th>
-                                <th scope="col">Telefono</th>
+                                <th scope="col">Teléfono</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Horario</th>
+                                <th scope="col">Cierre del ambiente</th>
+                                <th scope="col">Ambiente</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ( $data as $reservas)
+                            @forelse ( $prestamos as $p)
                             <tr>
-                                <td>{{$reservas -> title}}</td>
-                                <td>{{$reservas -> descripcion}}</td>
-                                <td>{{$reservas -> telefono}}</td>
-                                <td>{{$reservas -> email}}</td>
-                            </tr>
+                                <td>{{$p -> instructor}}</td>
+                                <td>{{$p -> telefono}}</td>
+                                <td>{{$p -> email}}</td>
+                                <td>{{$p -> hora_salida}}</td>
+                                <td>{{$p -> ambiente}}</td>
+                                <td>
+                                    <form class="e" action="{{route('loan.delete', $p)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="btn-cerrar-ambt" type="submit"  value="Cerrar Ambiente">
+                                    </form>
+                                </td>
+                            </tr>       
                             @empty
-                            <td colspan="4" scope="col" class="text-alert-dash">No se encontraron préstamos de ambientes activos.</td> 
+                            <td colspan="6" scope="col" class="text-alert-dash">No se encontraron préstamos de ambientes activos.</td> 
                             @endforelse
                         </tbody>
                   </table>
                 </div>
             </div>
+            <script>
+                $('.e').submit( function(e){
+                    e.preventDefault();
+                    Swal.fire({
+                        text: "¿Seguro que quiere cerrar el ambiente?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#6e7881",
+                        cancelButtonColor: "#ff6961",
+                        cancelButtonText: "Cancelar",
+                        confirmButtonText: "Sí, cerrar"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                        }
+                    });
+                });
+            </script>
             @endsection
 
         @section('main')

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FloorRequest;
-use App\Models\Environment;
 use App\Models\Floor;
 use Illuminate\Http\Request;
 
@@ -12,56 +10,25 @@ class FloorController extends Controller
     public function index()
     {
         $data = Floor::all();
-        $rooms = Environment::all()->where('floor_id', 1);
-        $levels = Floor::latest('floor')->first();
-        return view('pages.floor.index', compact(['data', 'rooms', 'levels']));
+
+        return view('pages.floor.index', compact('data'));
     }
 
-    public function environs($id)
+    public function store(Request $request)
     {
-        $environs = Environment::all()->where('floor_id', $id);
-        return view('pages.prestamos.ambientes.index', compact(['environs','id']));
-    }
+        $request -> validate([
+            'floor' => 'required|'
+        ]);
 
-    public function lastfloor()
-    {
-        $levels = Floor::latest('floor')->first();
-        return response()->json([$levels]);
-    }
+        $data = new Floor();
 
+        $data -> floor = $request -> input('floor');
 
-    public function store(FloorRequest $request)
-    {
-        Floor::create($request->validated());
+        $data -> save();
+
         session()->flash('status_message','Piso creado exitosamente.');
-        return back();
 
-    //     if($validation!==null){
-            
-    //     $data = new Floor();
-
-    //     $data -> floor = $request -> input('floor');
-
-    //     $data -> save();
-
-    //     session()->flash('status_message','Piso creado exitosamente.');
-
-    //     return to_route('floors');
-    //     }
-    //     else{
-    //         session()->flash('status_message','Numero de piso ya creado.');
-
-    //     return to_route('floors');
-    //     }
-
-    }
-
-    public function save(FloorRequest $request)
-    {
-        Floor::create($request->validated());
-        session()->flash('status_message','Piso creado exitosamente.');
-        return back();
-
+        return to_route('floors');
     }
 
     public function edit($id)
@@ -85,13 +52,5 @@ class FloorController extends Controller
         session()->flash('status_message','Piso actualizado exitosamente.');
 
         return to_route('floors');
-    }
-
-    public function destroy(Floor $id)
-    {
-       $id->delete();
-       session()->flash('status_message','Piso Eliminado Correctamente.');
-       return to_route('floors');
-
     }
 }

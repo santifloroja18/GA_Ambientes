@@ -12,11 +12,17 @@ class Schedule extends Model
     protected $guarded = [];
 
     protected $fillable = [
-        "CC",
         "instructor",
-        "ambiente",
+        "telefono",
+        "email",
+        "documento",
+        "programa",
+        "hora_entrada",
+        "hora_salida",
+        "fecha",
         "dia",
-        "franja",
-        "ficha"
+        "ambiente",
+        "code",
+        "disponibilidad"
     ];
 }

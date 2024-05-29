@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->string('instructor');
             $table->string('telefono');
@@ -23,8 +23,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('dia');
             $table->integer('ambiente');
-            $table->boolean('disponibilidad') -> nullable();
-            $table->string('code')->nullable();
+            $table->boolean('disponibilidad');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('loans');
     }
 };

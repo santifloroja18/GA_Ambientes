@@ -49,22 +49,30 @@
                                     <table class="table text-center" style="font-size: 0.9rem">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">CC</th>
                                                 <th scope="col">Instructor</th>
+                                                <th scope="col">Celular</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Documento</th>
+                                                <th scope="col">Programa</th>
+                                                <th scope="col">Hora de entrada</th>
+                                                <th scope="col">Hora de salida</th>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">Dia</th>
                                                 <th scope="col">Ambiente</th>
-                                                <th scope="col">Día</th>
-                                                <th scope="col">Franja</th>
-                                                <th scope="col">Ficha</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ $schedule -> CC}}</td>
                                                 <td>{{ $schedule -> instructor}}</td>
-                                                <td>{{ $schedule -> ambiente}}</td>
+                                                <td>{{ $schedule -> telefono}}</td>
+                                                <td>{{ $schedule -> email}}</td>
+                                                <td>{{ $schedule -> documento}}</td>
+                                                <td>{{ $schedule -> programa}}</td>
+                                                <td>{{ $schedule -> hora_entrada}}</td>
+                                                <td>{{ $schedule -> hora_salida}}</td>
+                                                <td>{{ $schedule -> fecha}}</td>
                                                 <td>{{ $schedule -> dia}}</td>
-                                                <td>{{ $schedule -> franja}}</td>
-                                                <td>{{ $schedule -> ficha}}</td>
+                                                <td>{{ $schedule -> ambiente}}</td>
                                             </tr>
                                         </tbody>
                                       </table>
