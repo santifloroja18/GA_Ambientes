@@ -1,23 +1,4 @@
-@extends('layout.app')
-@section('meta-description', 'Vista de los ambientes')
-@section('title','Pisos - Ambientes.')
-@section('content')
-
-@section('header')
-        @include('partials.header')
-@endsection
-
-
-    @section('sidebar')
-        @include('partials.sidebar')
-    @endsection
-
-        @section('navbar')
-            @include('partials.navbar')
-        @endsection
-
-            @section('content')
-            <x-alert></x-alert>
+@include('partials.headsection')
 
             <div class="modal fade dialog-style" id="modal-addambiente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -57,36 +38,47 @@
                     <div style="background-color: red; text-align:center; font-size: 20px">
                     <p style="color: white">@error('environment') {{$message}} @enderror</p>
                     </div>
-                    <ul class="d-flex flex-nowrap">
+                     <h4 class="text-center" style="font-family:Arial, Helvetica, sans-serif">Click sobre los ambientes para gestionar cambios</h4>
+
+
+                     <div class="ml-5 mx-5 p-2 rounded border border-2">
+                        <ul class="d-flex flex-nowrap">
+
+                      
                   
-                  @forelse($environs as $floor)
-                 
-                    <a 
-                    title="barrar y editar"
-                    class="environment-link rounded border border-1 text-center p-2 text-light" style="width: 8%; background-color: #021b0f"
-                    id="btnshowenvironment"
-                    data-bs-toggle="modal" data-bs-target="#modalshowenvironment{{$floor -> id}}" href="#">
-                    <li>{{$floor -> environment}}</li>
-                    </a>
-                 
-                   @include('components.modaledit')
-                  @empty
-                  <div class="text-center"><h1>No existen ambientes creados en este piso</h1></div>
-                    
-                  @endforelse
+                            @forelse($environs as $floor)
+                           
+                              <a 
+                              title="Cambios e Inventario"
+                              class="environment-link rounded border border-1 text-center p-2 text-light" style="width: 8%; background-color: #021b0f"
+                              id="btnshowenvironment"
+                              data-bs-toggle="modal" data-bs-target="#modalshowenvironment{{$floor -> id}}" href="#">
+                              <li>{{$floor -> environment}}</li>
+                              </a>
+                          
+                            
+                             @include('components.modaledit')
+                            @empty
+                            <div class="text-center"><h1>No existen ambientes creados en este piso</h1></div>
+                              
+                            @endforelse
+                             
+                           
+                              </ul>
+                            
+                     </div>
                    
-                 
-                    </ul>
                    
                 </div>
-                <div class="m-5 p-4 rounded border border-2">
+                <div class="m-5 p-2 rounded border border-2">
                     <a 
                     title="Agregar otro ambiente"
-                    style="background-color: #021b0f" class="btn fw-bold text-light" data-bs-toggle="modal" data-bs-target="#modal-addambiente" href="#modal-addambiente" id="btnmodal" data-id={{$id}} >Agregar otro ambiente al piso {{$id}} </a>
+                    style="background-color: #021b0f" class="btn fw-bold text-light" data-bs-toggle="modal" data-bs-target="#modal-addambiente" href="#modal-addambiente" id="btnmodal" data-id={{$id}} ><i class="ph ph-plus-square text-success fw-bold" style="font-size: 1.3rem"></i> Agregar ambiente</a>
                     <a  
                     title="Regresar a pisos"
-                    style="background-color: #021b0f" class="btn fw-bold text-light" href="{{route('floors')}}"> Volver a pisos</a>
-                    
+                    style="background-color: #021b0f" class="btn fw-bold text-light" href="{{route('floors')}}"><i class="ph ph-arrow-u-up-left text-success fw-bold" style="font-size: 1.3rem"></i> Volver
+                    </a>
+                 
                   </div>
                   
                    <script>
@@ -97,13 +89,4 @@
                     });
                    </script>
               </div>           
-
-@endsection
-
-@section('main')
-    @include('partials.main')
-@endsection
-
-@section('footer')
-@include('partials.footer')
-@endsection
+@include('partials.footsection')

@@ -20,12 +20,10 @@ class ScheduleImport implements ToModel, WithHeadingRow, WithBatchInserts, WithC
     public function model(array $row)
     {
         return new Schedule([
-            'CC' => $row['cc'],
             'instructor' => $row['instructor'],
-            'ambiente' => $row['ambiente'],
-            'dia' => $row['dia'],
-            'franja' => $row['franja'],
-            'ficha' => $row['ficha']
+            'programa' => $row['programa'],
+            'hora_entrada' => $row['hora_entrada'],
+            'hora_salida' => $row['hora_salida']
         ]);
     }
 

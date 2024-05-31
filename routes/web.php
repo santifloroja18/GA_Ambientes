@@ -4,6 +4,7 @@ use App\Http\Controllers\AuditoriumController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EnvironmentController;
+use App\Http\Controllers\EnvironmentStockController;
 use App\Http\Controllers\FloorController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserController;
@@ -50,8 +51,12 @@ Route::middleware('auth')->group( function (){
     // Route::get('floors/{id}', [EnvironmentController::class, 'index'])->name('floors');
     Route::post('/environment/store', [EnvironmentController::class, 'store'])->name('environment.store');
     Route::get('/floors/{id}', [EnvironmentController::class, 'rooms']);
-    // Route::get('/environs/prestamo', [EnvironmentController::class, 'index'])->name('environment.prestamos');
-    
+
+    Route::get('/environmentStock/{id?}/{fl?}', [EnvironmentStockController::class, 'elementStock'])->name('element.stock');
+    Route::post('/environmentStock-store', [EnvironmentStockController::class, 'storeStock'])->name('element.store');
+    Route::put('/environmentStock-update/{id?}', [EnvironmentStockController::class, 'updateStock'])->name('element.update');
+    Route::delete('/environmentStock-destroy/{id?}', [EnvironmentStockController::class, 'destroyStock'])->name('element.destroy');
+
     // Route::get('/environments', [FloorController::class, 'index'])->name('environments');
     // Route::post('/environment', [FloorController::class, 'store'])->name('environment.store');
     // Route::get('/environment/{id}/edit', [FloorController::class, 'edit'])->name('environment.edit');
@@ -95,5 +100,4 @@ Route::middleware('auth')->group( function (){
     // rutas de la vista y form para editar rol de usuario
     Route::get('/user/{user}/edit-role', [UserController::class, 'editRole'])->name('user.editRole');
     Route::patch('/user-role/{user}', [UserController::class, 'updateRole'])->name('user.updateRole');
-    Route::view('/environs/prestamo','pages.loan.index')->name('loan.index');
 });

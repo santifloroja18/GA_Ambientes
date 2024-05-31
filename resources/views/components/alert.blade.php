@@ -11,6 +11,18 @@
     </script>
 @endsection
 @endif
+
+@if (session('info_message'))
+@section('codigo-javascript-body')
+    <script>
+        Swal.fire({
+            text: "{{session('info_message')}}",
+            icon: "warning",
+            showConfirmButton: true,
+        });
+    </script>
+@endsection
+@endif
 {{-- alerta de inicio de sesion - fin  --}}
 @if (session('delete_message'))
 @section('codigo-javascript-body')

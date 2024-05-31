@@ -19,11 +19,6 @@ class EnvironmentController extends Controller
         return response()->json([$floor]);
     }
 
-    // public function index()
-    // {
-    //     return view('pages.loan.index');
-    // }
-
     public function store(EnvironmentRequest $request)
     {
         Environment::create($request->validated());
@@ -43,8 +38,7 @@ class EnvironmentController extends Controller
         $environ->environment=$request->input('environment');
         $environ->floor_id=$request->input('floor_id');
         $environ->save();
-        session()->flash('status_message','ambiente modificado correctamente.');
-        return back();
+        return back()->with(session()->flash('status_message','ambiente modificado correctamente.'));
     }
 
     public function destroy(Environment $envi)

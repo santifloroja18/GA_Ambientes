@@ -62,10 +62,6 @@
                                     </div>
                                     {{--Input Elemento oculto --}}
                                     <div class="form-floating mb-3">
-                                        {{-- ciclo para obtener el id del piso y enviarlo por defeult en el formulario --}}
-                                        {{-- @forelse($data as $floor)    
-                                        @empty   
-                                        @endforelse --}}
                                         <input type="number" class="form-control" id="id" name="floor_id">
                                     </div>
                                     <input class="btn btnn-style right" type="submit" value="Crear Ambiente" title="click para crear ambiente">
@@ -102,58 +98,28 @@
                         @csrf
                         <input type="number" class="form-control w-50" id="floatingInput" name="floor" value="{{$levels -> floor + 1}}" hidden>
                         <input class="btn btnn-style" type="submit" value="Agregar piso {{$levels->floor+1}}" >
-                        </form>                  
+                        </form>      
+                                    
                     </div>
                     <div class="container-accordion">
                         @forelse ( $data as $floor )
-                        <div class="tab">
-                            <input type="radio" name="acc" id="acc{{$floor -> id}}">
-                            <label for="acc{{$floor -> id}}">
+                        <div class="tab d-flex justify-content-between pt-3">
+                            <div class="option-floors">
+                                <input type="radio" name="acc" id="acc{{$floor -> id}}">
+                                <label for="acc{{$floor -> id}}">
                                 <h3 class="m-2">Piso</h3>
                                 <a href="#">{{$floor -> floor}}</a>
                             </label>
-                            <div class="option-floors">
-                                <span></span>
-                                <a href="{{route('floor.environs', $floor -> floor)}}">Ver ambientes piso {{$floor -> floor}}</a>
-                                {{-- <a data-bs-toggle="modal" data-bs-target="#modal-addambiente" href="#modal-addambiente" id="btnmodal" data-id={{$floor -> floor}}>Agregar ambiente {{$floor -> floor}}</a> --}}
                             </div>
-                            
-                            <div class="content">
-                                
-                                <div>
-                                    <ul>
-                                       <li>Ambientes</li>
-                                       @forelse($rooms as $room)
-                                       <li class="environment-link"><a 
-                                        id="btnshowenvironment"
-                                        data-id="{{$room -> environment}}"
-                                        data-bs-toggle="modal" data-bs-target="#modal-show-environment" class="environment-link-a" href="#">{{$room -> environment}}</a>
-                                       </li>
-                                       @empty
-                                        <h1>No existen ambientes creados aun</h1>
-                                       @endforelse
-                                    </ul>
-                                   
-                                    {{--el siguiente es un script para enviar id al input numero piso --}}
-                                    <script>
-                                     $(document).on("click", "#btnmodal", function(){
-                                        var id = $(this).data('id');
-                                        $("#id").val(id);
-                                     })
-                                    </script>
-
-                                    <script>
-                                        $(document).on("click", "#btnshowenvironment", function(){
-                                        var id = $(this).data('id');
-                                        $("#show_environment").val(id);
-                                        })
-                                    </script>
-                                </div>
+                            <div class="option-floors">
+                                <a href="{{route('floor.environs', $floor -> floor)}}">Ver ambientes piso {{$floor -> floor}}</a>
                             </div>
                         </div>
                         @empty
                             <h4 class="alert-agregar-ambiente">Oprima en el botón crear piso para agregar un nuevo piso.</h4>
                         @endforelse
+
+                        
                 </div>
 
                 <div class="modal fade dialog-style" id="modal-show-environment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -6,6 +6,7 @@ use App\Http\Requests\FloorRequest;
 use App\Models\Environment;
 use App\Models\Floor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FloorController extends Controller
 {

@@ -49,22 +49,26 @@
                                     <table class="table text-center" style="font-size: 0.9rem">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">CC</th>
                                                 <th scope="col">Instructor</th>
-                                                <th scope="col">Ambiente</th>
-                                                <th scope="col">Día</th>
-                                                <th scope="col">Franja</th>
-                                                <th scope="col">Ficha</th>
+                                                <th scope="col">Celular</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Programa</th>
+                                                <th scope="col">Hora de entrada</th>
+                                                <th scope="col">Hora de salida</th>
+                                                <th scope="col">Dias</th>
+                                                <th scope="col">Ambientes</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ $schedule -> CC}}</td>
                                                 <td>{{ $schedule -> instructor}}</td>
-                                                <td>{{ $schedule -> ambiente}}</td>
-                                                <td>{{ $schedule -> dia}}</td>
-                                                <td>{{ $schedule -> franja}}</td>
-                                                <td>{{ $schedule -> ficha}}</td>
+                                                <td>3054046162</td>
+                                                <td>prueba@gmail.com</td>
+                                                <td>{{ $schedule -> programa}}</td>
+                                                <td>{{ $schedule -> hora_entrada}}</td>
+                                                <td>{{ $schedule -> hora_salida}}</td>
+                                                <td>lunes</td>
+                                                <td>301</td>
                                             </tr>
                                         </tbody>
                                       </table>

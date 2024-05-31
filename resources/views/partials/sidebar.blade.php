@@ -9,8 +9,8 @@
                 <a title='click para ver pisos' href="#"><i class="ph-bold ph-chalkboard-teacher icon"></i>Pisos-Ambientes<i class='bx bx-chevron-right icon-right' ></i></a>
                 <ul class="side-dropdown">
                         <li title='click para ver ambientes'><a href="{{route('floors')}}">Ambientes</a></li>
-                        <li title='click para prestar ambientes'><a href="{{route('loan.index')}}">Prestamo Ambientes</a></li>
-                        {{-- <li title='click para ver reportes'><a href="#">Reportes</a></li> --}}
+                        <li title='click para prestar ambientes'><a href="#">Prestar</a></li>
+                        <li title='click para ver reportes'><a href="{{route('reservas-auditorio-601')}}">Reportes</a></li>
                 </ul>
         </li>
             <li>
