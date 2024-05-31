@@ -3,13 +3,18 @@
 use App\Http\Controllers\AuditoriumController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+<<<<<<< HEAD
 use App\Http\Controllers\EnvironmentController;
 use App\Http\Controllers\EnvironmentStockController;
+=======
+>>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
 use App\Http\Controllers\FloorController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Row;
 
 // ruta de inicio de sesion la cual tiene el formulario de register, login y no estan protegidas por el auth
 
@@ -37,17 +42,10 @@ Route::middleware('auth')->group( function (){
 
     // rutas de las vistas environment
     Route::get('/floors', [FloorController::class, 'index'])->name('floors');
-
     Route::post('/floor', [FloorController::class, 'store'])->name('floor.store');
-    Route::post('/floor-save', [FloorController::class, 'save'])->name('floor.save');
-    Route::delete('/floor/{id?}', [FloorController::class, 'destroy'])->name('floor.destroy');
-    Route::get('/environs/{envi?}', [FloorController::class, 'environs'])->name('floor.environs');
-    Route::get('/environs/{id?}', [EnvironmentController::class, 'show'])->name('environs.show');
-    Route::put('/environs/{id?}', [EnvironmentController::class, 'update'])->name('environs.update');
-    Route::delete('/environs/{envi?}', [EnvironmentController::class, 'destroy'])->name('environs.destroy');
-    // Route::put('/environs/{id?}', [EnvironmentController::class, 'update'])->name('floor.update');
     Route::get('/floor/{id}/edit', [FloorController::class, 'edit'])->name('floor.edit');
     Route::patch('/floor/{id}', [FloorController::class, 'update'])->name('floor.update');
+<<<<<<< HEAD
     // Route::get('floors/{id}', [EnvironmentController::class, 'index'])->name('floors');
     Route::post('/environment/store', [EnvironmentController::class, 'store'])->name('environment.store');
     Route::get('/floors/{id}', [EnvironmentController::class, 'rooms']);
@@ -56,6 +54,8 @@ Route::middleware('auth')->group( function (){
     Route::post('/environmentStock-store', [EnvironmentStockController::class, 'storeStock'])->name('element.store');
     Route::put('/environmentStock-update/{id?}', [EnvironmentStockController::class, 'updateStock'])->name('element.update');
     Route::delete('/environmentStock-destroy/{id?}', [EnvironmentStockController::class, 'destroyStock'])->name('element.destroy');
+=======
+>>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
 
     // Route::get('/environments', [FloorController::class, 'index'])->name('environments');
     // Route::post('/environment', [FloorController::class, 'store'])->name('environment.store');
@@ -100,4 +100,16 @@ Route::middleware('auth')->group( function (){
     // rutas de la vista y form para editar rol de usuario
     Route::get('/user/{user}/edit-role', [UserController::class, 'editRole'])->name('user.editRole');
     Route::patch('/user-role/{user}', [UserController::class, 'updateRole'])->name('user.updateRole');
+<<<<<<< HEAD
+=======
+
+
+
+    // rutas para prestar ambientes
+
+    Route::post('/loan-search', [LoanController::class, 'search'])->name('loan.search');
+    Route::post('/loan', [LoanController::class, 'store'])->name('loan.store');
+
+    Route::delete('/loan-delete/{id}',[LoanController::class, 'cerrar'])->name('loan.delete');
+>>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
 });

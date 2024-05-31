@@ -52,16 +52,27 @@
                                                 <th scope="col">Instructor</th>
                                                 <th scope="col">Celular</th>
                                                 <th scope="col">Email</th>
+<<<<<<< HEAD
                                                 <th scope="col">Programa</th>
                                                 <th scope="col">Hora de entrada</th>
                                                 <th scope="col">Hora de salida</th>
                                                 <th scope="col">Dias</th>
                                                 <th scope="col">Ambientes</th>
+=======
+                                                <th scope="col">Documento</th>
+                                                <th scope="col">Programa</th>
+                                                <th scope="col">Hora de entrada</th>
+                                                <th scope="col">Hora de salida</th>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">Dia</th>
+                                                <th scope="col">Ambiente</th>
+>>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>{{ $schedule -> instructor}}</td>
+<<<<<<< HEAD
                                                 <td>3054046162</td>
                                                 <td>prueba@gmail.com</td>
                                                 <td>{{ $schedule -> programa}}</td>
@@ -69,6 +80,17 @@
                                                 <td>{{ $schedule -> hora_salida}}</td>
                                                 <td>lunes</td>
                                                 <td>301</td>
+=======
+                                                <td>{{ $schedule -> telefono}}</td>
+                                                <td>{{ $schedule -> email}}</td>
+                                                <td>{{ $schedule -> documento}}</td>
+                                                <td>{{ $schedule -> programa}}</td>
+                                                <td>{{ $schedule -> hora_entrada}}</td>
+                                                <td>{{ $schedule -> hora_salida}}</td>
+                                                <td>{{ $schedule -> fecha}}</td>
+                                                <td>{{ $schedule -> dia}}</td>
+                                                <td>{{ $schedule -> ambiente}}</td>
+>>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
                                             </tr>
                                         </tbody>
                                       </table>

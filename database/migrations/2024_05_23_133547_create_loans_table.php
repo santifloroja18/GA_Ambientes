@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->string('instructor');
-<<<<<<< HEAD
-            $table->string('programa');
-            $table->string('hora_entrada');
-            $table->string('hora_salida');
-=======
             $table->string('telefono');
             $table->string('email');
             $table->bigInteger('documento');
@@ -28,9 +23,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('dia');
             $table->integer('ambiente');
-            $table->boolean('disponibilidad') -> nullable();
-            $table->string('code')->nullable();
->>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
+            $table->boolean('disponibilidad');
             $table->timestamps();
         });
     }
@@ -40,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('loans');
     }
 };
