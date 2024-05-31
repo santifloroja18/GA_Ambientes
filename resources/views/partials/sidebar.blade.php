@@ -4,7 +4,6 @@
     <a href="{{route('dashboard')}}" class="brand"><img class="icono-brand" src="{{url('asset/images/icono_sena.png')}}" alt="icono"> GA | System</a>
     <ul class="side-menu">
             <li><a href="{{route('dashboard')}}" class="active letter"><i class="ph-bold ph-house icon"></i>Dashboard</a></li>
-<<<<<<< HEAD
             <li class="divider" data-text="Panel de control"></li>
             <li data-text="Gestionar ambientes">
                 <a title='click para ver pisos' href="#"><i class="ph-bold ph-chalkboard-teacher icon"></i>Pisos-Ambientes<i class='bx bx-chevron-right icon-right' ></i></a>
@@ -14,10 +13,6 @@
                         <li title='click para ver reportes'><a href="{{route('reservas-auditorio-601')}}">Reportes</a></li>
                 </ul>
         </li>
-=======
-            <li class="divider" data-text="Principal">Principal</li>
-            <li><a href="{{route('floors')}}"><i class="ph-bold ph-building icon"></i> Ambientes</a></li>
->>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
             <li>
                     <a href="#"><i class="ph-bold ph-chalkboard-teacher icon"></i> Auditorios <i class='bx bx-chevron-right icon-right' ></i></a>
                     <ul class="side-dropdown">

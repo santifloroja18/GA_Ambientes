@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('environments', function (Blueprint $table) {
             $table->id();
-            $table->string('instructor');
-            $table->string('programa');
-            $table->string('hora_entrada');
-            $table->string('hora_salida');
+            $table->string('environment')->unique();
+            $table->unsignedBigInteger('floor_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('environments');
     }
 };

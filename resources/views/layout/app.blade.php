@@ -45,11 +45,8 @@
             @yield('navbar')
             @yield('content')
             @yield('main')
-<<<<<<< HEAD
             @yield('alertDelete')
             @yield('alertEdit')
-=======
->>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
         @yield('codigo-javascript-body')
         @yield('footer')
             

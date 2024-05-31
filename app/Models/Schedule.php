@@ -13,22 +13,8 @@ class Schedule extends Model
 
     protected $fillable = [
         "instructor",
-<<<<<<< HEAD
         "programa",
         "hora_entrada",
         "hora_salida"
-=======
-        "telefono",
-        "email",
-        "documento",
-        "programa",
-        "hora_entrada",
-        "hora_salida",
-        "fecha",
-        "dia",
-        "ambiente",
-        "code",
-        "disponibilidad"
->>>>>>> d55da4ad765efae44a7e720b81fc69c0e2bf7077
     ];
 }

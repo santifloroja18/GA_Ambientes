@@ -3,12 +3,10 @@
     <!-- NAVBAR -->
     <nav class="nav-container">
             <i class='bx bx-menu toggle-sidebar' ></i>
-            <form action="{{ route('loan.search')}}" method="POST">
-                @csrf
+            <form action="#">
                     <div class="form-group">
-                            <input name="search_id" class="input-search" type="number" placeholder="Buscar disponibilidad de ambiente para asignar.">
+                            <input class="input-search" type="text" placeholder="Buscar...">
                             <i class="ph-bold ph-magnifying-glass icon"></i>
-                            
                     </div>
             </form>
             <a href="#" class="nav-link">
@@ -35,16 +33,5 @@
                 <h5 class="title">Bienvenido(a) @auth{{Auth::user()->name}}@endauth. </h5>
                 
         </div>
-
-        <p style="color:red; font-size:0.8rem;" >@error('search_id')  @enderror</p>
-        
-        @error('search_id')
-                <script>
-                        Swal.fire({
-                        icon: "error",
-                        text: "{{$message}}"
-                        });
-                </script>
-        @enderror
-        
+            
             

@@ -24,16 +24,28 @@
 @endsection
 @endif
 {{-- alerta de inicio de sesion - fin  --}}
-
-{{-- alerta de inicio de sesion - inicio --}}
-@if (session('faild_request'))
+@if (session('delete_message'))
 @section('codigo-javascript-body')
     <script>
-        Swal.fire({
-            text: "{{session('faild_request')}}",
-            icon: "error",
-        });
+  Swal.fire({
+  title: "Advertencia...",
+  text: "{{session('delete_message')}}",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+  }
+});
+                
     </script>
 @endsection
 @endif
-{{-- alerta de inicio de sesion - fin  --}}
