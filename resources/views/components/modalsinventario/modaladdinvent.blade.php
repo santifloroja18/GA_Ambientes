@@ -1,4 +1,4 @@
-<div class="modal fade dialog-style" id="modaladd-element" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade dialog-style" id="modaladdinventario{{$env -> id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content ventana-style">
             <div class="modal-header header-style">
@@ -10,8 +10,8 @@
                 <form action="{{route('element.store')}}" method="post">
                     @csrf
                     @method('post')
-                    <div class="form-floating mb-3" >
-                        <input type="number" class="form-control" id="floatingInput" name="environment_id" value="#">
+                    <div class="form-floating mb-3" hidden>
+                        <input type="number" class="form-control" id="floatingInput" name="environment_id" value="{{$env -> id}}">
                         <label for="floatingInput">Ambiente</label>
                     </div >
                     <div class="form-group mb-3">
