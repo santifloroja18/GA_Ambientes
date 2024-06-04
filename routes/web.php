@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuditoriumController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EnvironmentController;
+use App\Http\Controllers\EnvironmentstockController;
 use App\Http\Controllers\FloorController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ScheduleController;
@@ -35,17 +37,27 @@ Route::middleware('auth')->group( function (){
     Route::get('/dashboard',[DashboardController::class,'index']) -> name('dashboard');
 
 
-    // rutas de las vistas environment
+    // Rutas para el control de pisos
     Route::get('/floors', [FloorController::class, 'index'])->name('floors');
     Route::post('/floor', [FloorController::class, 'store'])->name('floor.store');
+    Route::post('/floor-save', [FloorController::class, 'save'])->name('floor.save');
+    Route::delete('/floor/{id?}', [FloorController::class, 'destroy'])->name('floor.destroy');
+    Route::get('/floors/{id}', [EnvironmentController::class, 'rooms']);
     Route::get('/floor/{id}/edit', [FloorController::class, 'edit'])->name('floor.edit');
     Route::patch('/floor/{id}', [FloorController::class, 'update'])->name('floor.update');
-
-    // Route::get('/environments', [FloorController::class, 'index'])->name('environments');
-    // Route::post('/environment', [FloorController::class, 'store'])->name('environment.store');
-    // Route::get('/environment/{id}/edit', [FloorController::class, 'edit'])->name('environment.edit');
-    // Route::patch('/environment/{id}', [FloorController::class, 'update'])->name('environment.update');
-
+    Route::get('/environs/{envi?}', [FloorController::class, 'environs'])->name('floor.environs');
+    //Rutas para el control de ambientes
+    
+    Route::get('/environs/{id?}', [EnvironmentController::class, 'show'])->name('environs.show');
+    Route::put('/environs/{id?}', [EnvironmentController::class, 'update'])->name('environs.update');
+    Route::delete('/environs/{envi?}', [EnvironmentController::class, 'destroy'])->name('environs.destroy');
+    //Rutas para el control de inventarios
+    Route::post('/environment-store', [EnvironmentController::class, 'store'])->name('environment.store');
+    Route::get('/environmentStock/{id?}/{fl?}', [EnvironmentstockController::class, 'elementStock'])->name('element.stock');
+    Route::post('/environmentStock-store', [EnvironmentstockController::class, 'storeStock'])->name('element.store');
+    Route::put('/environmentStock-update/{id?}', [EnvironmentstockController::class, 'updateStock'])->name('element.update');
+    Route::delete('/environmentStock-destroy/{id?}', [EnvironmentstockController::class, 'destroyStock'])->name('element.destroy');
+    Route::get('/environmentStockExport', [EnvironmentstockController::class, 'export'])->name('export');
     // rutas de las vistas de los auditorios (301 - 601)
     Route::get('/reservas-auditorio-tres-cero-uno', [AuditoriumController::class,'indexAuditoriumTres'])->name('reservas-auditorio-301');
     Route::post('/auditoriumTres', [AuditoriumController::class, 'storeTres'])->name('auditorium.storeTres');
@@ -91,6 +103,4 @@ Route::middleware('auth')->group( function (){
 
     Route::post('/loan-search', [LoanController::class, 'search'])->name('loan.search');
     Route::post('/loan', [LoanController::class, 'store'])->name('loan.store');
-
-    Route::delete('/loan-delete/{id}',[LoanController::class, 'cerrar'])->name('loan.delete');
 });

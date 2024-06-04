@@ -43,8 +43,10 @@
         @yield('header')
             @yield('sidebar')
             @yield('navbar')
-                @yield('content')
+            @yield('content')
             @yield('main')
+            @yield('alertDelete')
+            @yield('alertEdit')
         @yield('codigo-javascript-body')
         @yield('footer')
             

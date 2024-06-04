@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Loan;
-use App\Models\reportLoan;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,10 +11,6 @@ class LoanController extends Controller
 {
     public function search(Request $request)
     {
-        $request -> validate([
-            'search_id' => 'required|numeric'
-        ]);
-
         date_default_timezone_set("America/Bogota");
 
         $fecha = date("o-m-d");
@@ -24,7 +19,7 @@ class LoanController extends Controller
 
         $id = $request -> input('search_id');
 
-        $data = DB::select("SELECT * FROM `schedules` WHERE `documento` = $id  AND `fecha` = '$fecha' AND `disponibilidad` = 1");
+        $data = DB::select("SELECT * FROM `schedules` WHERE `documento` = $id  AND `fecha` = '$fecha' ");
 
         if($data == [])
         {
@@ -69,28 +64,6 @@ class LoanController extends Controller
 
         $data -> save();
 
-        $data = new reportLoan();
-
-        $data -> instructor = $request -> input('instructor');
-        $data -> telefono = $request -> input('telefono');
-        $data -> email = $request -> input('email');
-        $data -> documento = $request -> input('documento');
-        $data -> programa = $request -> input('programa');
-        $data -> hora_entrada = $request -> input('hora_entrada');
-        $data -> hora_salida = $request -> input('hora_salida');
-        $data -> fecha = $request -> input('fecha');
-        $data -> dia = $request -> input('dia');
-        $data -> ambiente = $request -> input('ambiente');
-
-        $data -> save();
-
-        $data = Schedule::Find($request -> input('id'));
-
-        $data -> disponibilidad = $request -> input('disponibilidad');
-
-        $data -> save();
-
-
         session()->flash('status_message','Ambiente prestado con exito.');
 
         return to_route('dashboard');
@@ -99,15 +72,32 @@ class LoanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function cerrar($id)
+    public function show(Loan $loan)
     {
+        //
+    }
 
-        Loan::destroy($id);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Loan $loan)
+    {
+        //
+    }
 
-        return to_route('dashboard');
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Loan $loan)
+    {
+        //
+    }
 
-
-        // DB::update("UPDATE 'loans' WHERE  `instructor` = '$data -> instructor' ");
-
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Loan $loan)
+    {
+        //
     }
 }

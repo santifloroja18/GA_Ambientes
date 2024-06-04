@@ -22,7 +22,6 @@ class Schedule extends Model
         "fecha",
         "dia",
         "ambiente",
-        "code",
-        "disponibilidad"
+        "code"
     ];
 }

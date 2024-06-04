@@ -23,7 +23,6 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('dia');
             $table->integer('ambiente');
-            $table->boolean('disponibilidad') -> nullable();
             $table->string('code')->nullable();
             $table->timestamps();
         });
