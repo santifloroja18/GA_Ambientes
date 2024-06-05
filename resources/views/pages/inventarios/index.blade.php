@@ -1,4 +1,23 @@
-@include('partials.headsection')
+@extends('layout.app')
+@section('meta-description', 'Vista de los ambientes')
+@section('title','Pisos - Ambientes.')
+@section('content')
+
+@section('header')
+        @include('partials.header')
+@endsection
+
+
+    @section('sidebar')
+        @include('partials.sidebar')
+    @endsection
+
+        @section('navbar')
+            @include('partials.navbar')
+        @endsection
+
+            @section('content')
+            <x-alert></x-alert>
 
 @if($elements)
 <div class="p-3 border border-1 rounded rounded-3" >
@@ -32,12 +51,14 @@
                                 @csrf
                                 @method('delete')
                                     <input class="btn btnn-style bg-dark text-light" type="submit" value="Eliminar" title="click para eliminar elemento">
-                            </form>               
+                                    
+                            </form>   
+                                
                         </div>
+                        
                     </td>
-            
+                     
                     </tr>
-   
                
                 @include('components.modalStock')
             @empty
@@ -45,7 +66,9 @@
             @endforelse
             
         </tbody>
+       
     </table>
+
     <div class="option-floors d-flex justify-content-between align-items-center">
         @include('components.modalsinventario.modaladdelement')
         <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modaladditem{{$ele -> environment_id}}">
@@ -64,12 +87,13 @@
        
     </div>
 </div>
+
 @else
-@include('components.modalsinventario.modaladdinventario')
-@forelse($room as $env)
+
+@foreach($room as $env)
 <div class="p-3 border border-1 rounded rounded-3 bg-white">
 <h3 class="text-center">No existe elementos relacionados con el ambiente.</h3>
-<a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modaladd-element">
+<a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modaladdelement{{$env -> id}}">
 <i class="ph ph-plus-square text-success fw-bold" style="font-size: 1.3rem"></i></i>Agregar elemento
 </a>
 <a  
@@ -77,11 +101,15 @@ title="Regresar a pisos"
 style="background-color: #021b0f" class="btn fw-bold text-light" href="{{route('floors')}}"><i class="ph ph-arrow-u-up-left text-success fw-bold" style="font-size: 1.3rem"></i> Volver
 </a>
 </div>
+@include('components.alerts.alertDelete') 
 @include('components.modalsinventario.modaladdinventario')
-@empty
-    
-@endforelse
-
+@endForeach
 @endif
+@endsection
 
-@include('partials.footsection')
+@section('main')
+    @include('partials.main')
+@endsection
+@section('footer')
+@include('partials.footer')
+@endsection

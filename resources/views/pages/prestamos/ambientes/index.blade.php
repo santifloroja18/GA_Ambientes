@@ -1,4 +1,23 @@
-@include('partials.headsection')
+@extends('layout.app')
+@section('meta-description', 'Vista de los ambientes')
+@section('title','Pisos - Ambientes.')
+@section('content')
+
+@section('header')
+        @include('partials.header')
+@endsection
+
+
+    @section('sidebar')
+        @include('partials.sidebar')
+    @endsection
+
+        @section('navbar')
+            @include('partials.navbar')
+        @endsection
+
+            @section('content')
+            <x-alert></x-alert>
 
             <div class="modal fade dialog-style" id="modal-addambiente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -84,5 +103,12 @@
                     });
                    </script>
               </div>    
-                 
-@include('partials.footsection')
+              @endsection
+
+              @section('main')
+                  @include('partials.main')
+              @endsection
+              
+              @section('footer')
+              @include('partials.footer')
+              @endsection

@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                
-                <form action="{{route('element.update', $ele -> stock_id)}}" method="post">
+                <form action="{{route('element.update', $ele -> stock_id)}}" method="post" class="form-update">
                     @csrf
                     @method('put')
                     <div class="form-floating mb-3" hidden>
@@ -35,3 +35,6 @@
         </div>
     </div>
   </div>
+  @include('components.alerts.alertEdit')
+  @include('components.alerts.alertDelete')
+ 

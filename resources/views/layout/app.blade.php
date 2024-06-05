@@ -45,8 +45,8 @@
             @yield('navbar')
             @yield('content')
             @yield('main')
-            @yield('alertDelete')
-            @yield('alertEdit')
+            @yield('DeleteAlert')
+            @yield('EditAlert')
         @yield('codigo-javascript-body')
         @yield('footer')
             

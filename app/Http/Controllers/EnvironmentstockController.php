@@ -56,15 +56,14 @@ class EnvironmentstockController extends Controller
     public function updateStock(EnvironmentstockRequest $request, $id)
     {
       DB::update("UPDATE `environmentstocks` SET `element_id` = $request->element_id, `cantidad` = $request->cantidad WHERE `environmentstocks`.`id` = $id");
-      session()->flash('status_message','Elemento actualizado.');
-      return back();
+      return back()->with('update', true);
     }
 
     public function destroyStock($id)
     {
       DB::delete("DELETE FROM `environmentstocks` WHERE `environmentstocks`.`id` = $id");
       session()->flash('status_message','Elemento eliminado correctamente.');
-      return back();
+      return back()->with('delete', true);
     }
 
     public function import()
