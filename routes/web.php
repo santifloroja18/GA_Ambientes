@@ -103,4 +103,6 @@ Route::middleware('auth')->group( function (){
 
     Route::post('/loan-search', [LoanController::class, 'search'])->name('loan.search');
     Route::post('/loan', [LoanController::class, 'store'])->name('loan.store');
+
+    Route::delete('/loan-delete/{id}',[LoanController::class, 'cerrar'])->name('loan.delete');
 });

@@ -10,7 +10,7 @@
                 <form action="{{route('element.store')}}" method="post">
                     @csrf
                     @method('post')
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" hidden>
                         <input type="number" class="form-control" id="floatingInput" name="environment_id" value="{{$ele -> environment_id}}">
                         <label for="floatingInput">Ambiente</label>
                     </div >

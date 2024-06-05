@@ -79,8 +79,11 @@
                                 <td>{{$p -> hora_salida}}</td>
                                 <td>{{$p -> ambiente}}</td>
                                 <td>
-                                    
-                                    <a href=""><i class="ph-bold ph-key"></i> Cerrar</a>
+                                    <form class="e" action="{{route('loan.delete', $p)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="btn-cerrar-ambt" type="submit"  value="Cerrar Ambiente">
+                                    </form>
                                 </td>
                             </tr>       
                             @empty
@@ -90,6 +93,24 @@
                   </table>
                 </div>
             </div>
+            <script>
+                $('.e').submit( function(e){
+                    e.preventDefault();
+                    Swal.fire({
+                        text: "¿Seguro que quiere cerrar el ambiente?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#6e7881",
+                        cancelButtonColor: "#ff6961",
+                        cancelButtonText: "Cancelar",
+                        confirmButtonText: "Sí, cerrar"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                        }
+                    });
+                });
+            </script>
             @endsection
 
         @section('main')
