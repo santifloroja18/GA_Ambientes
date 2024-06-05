@@ -19,7 +19,6 @@ class Schedule extends Model
         "programa",
         "hora_entrada",
         "hora_salida",
-        "fecha",
         "dia",
         "ambiente",
         "disponibilidad",

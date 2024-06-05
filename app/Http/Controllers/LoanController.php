@@ -24,7 +24,7 @@ class LoanController extends Controller
 
         $id = $request -> input('search_id');
 
-        $data = DB::select("SELECT * FROM `schedules` WHERE `documento` = $id  AND `fecha` = '$fecha' AND `disponibilidad` = 1");
+        $data = DB::select("SELECT * FROM `schedules` WHERE `documento` = $id  AND `dia` = '$dia' AND `disponibilidad` = 1");
 
         if($data == [])
         {
@@ -61,7 +61,6 @@ class LoanController extends Controller
         $data -> programa = $request -> input('programa');
         $data -> hora_entrada = $request -> input('hora_entrada');
         $data -> hora_salida = $request -> input('hora_salida');
-        $data -> fecha = $request -> input('fecha');
         $data -> dia = $request -> input('dia');
         $data -> ambiente = $request -> input('ambiente');
         $data -> disponibilidad = $request -> input('disponibilidad');
@@ -78,7 +77,6 @@ class LoanController extends Controller
         $data -> programa = $request -> input('programa');
         $data -> hora_entrada = $request -> input('hora_entrada');
         $data -> hora_salida = $request -> input('hora_salida');
-        $data -> fecha = $request -> input('fecha');
         $data -> dia = $request -> input('dia');
         $data -> ambiente = $request -> input('ambiente');
 

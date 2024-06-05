@@ -24,7 +24,7 @@ class EnvironmentController extends Controller
     public function store(EnvironmentRequest $request)
     {
         Environment::create($request->validated());
-        session()->flash('status_message','ambiente agragado exitosamente.');
+        session()->flash('status_message','Ambiente agregado exitosamente.');
         return back();
     }
 

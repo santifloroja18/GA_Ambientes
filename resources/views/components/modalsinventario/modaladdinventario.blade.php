@@ -17,7 +17,7 @@
                     <div class="form-group mb-3">
                         
                         <select class="form-control bg-dark text-light"  name="element_id" id="element_id" >
-                            <option selected class="bg-dark">Desplegue y seleccione de la lista...</option>
+                            <option selected class="bg-dark">Despliegue y seleccione de la lista...</option>
                             @forelse($items as $i)
                               
                               <option value="{{$i -> id}}">{{$i -> id}} {{$i -> element_name}}</option>

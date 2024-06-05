@@ -27,7 +27,6 @@ class ScheduleImport implements ToModel, WithHeadingRow, WithBatchInserts, WithC
             'programa' => $row['programa'],
             'hora_entrada' => $row['hora_entrada'],
             'hora_salida' => $row['hora_salida'],
-            'fecha' => $row['fecha'],
             'dia' => $row['dia'],
             'ambiente' => $row['ambiente'],
             'disponibilidad' => 1

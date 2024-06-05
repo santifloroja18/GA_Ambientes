@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('programa');
             $table->time('hora_entrada');
             $table->time('hora_salida');
-            $table->date('fecha');
             $table->string('dia');
             $table->integer('ambiente');
             $table->boolean('disponibilidad') -> nullable();

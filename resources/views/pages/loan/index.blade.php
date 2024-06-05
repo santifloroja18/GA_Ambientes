@@ -80,19 +80,13 @@
                                 </div>
                             </div>
                             <div class="row mb-4"> <!--fila 1 -->
-                                <div class="col-md-4">
-                                    <div class="form-floating">
-                                        <input  type="text" class="form-control" name="fecha" value="{{$e -> fecha}}"  >
-                                        <label for="">Fecha</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-floating">
                                         <input  type="text" class="form-control" value="{{$e -> dia}}" name="dia"  >
                                         <label for="">Dia</label>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-floating">
                                         <input  type="text" class="form-control" value="{{$e -> ambiente}}" name="ambiente"  >
                                         <label for="">Ambiente</label>

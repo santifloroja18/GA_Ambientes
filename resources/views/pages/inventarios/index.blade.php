@@ -67,8 +67,8 @@
 @else
 @include('components.modalsinventario.modaladdinventario')
 @forelse($room as $env)
-<div class="p-3 border border-1 rounded rounded-3">
-<h3 class="text-center">No existe elementos relacionados con el ambiente de id {{$env -> id}}</h3>
+<div class="p-3 border border-1 rounded rounded-3 bg-white">
+<h3 class="text-center">No existe elementos relacionados con el ambiente.</h3>
 <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modaladd-element">
 <i class="ph ph-plus-square text-success fw-bold" style="font-size: 1.3rem"></i></i>Agregar elemento
 </a>
