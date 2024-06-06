@@ -70,7 +70,6 @@
                               <li>{{$floor -> environment}}</li>
                               </a>
                           
-                             
                              @include('components.modaledit')
                             @empty
                             <div class="text-center"><h1>No existen ambientes creados en este piso</h1></div>
@@ -109,6 +108,7 @@
                   @include('partials.main')
               @endsection
               
+              @include('components.alerts.alertDelete')
               @section('footer')
               @include('partials.footer')
               @endsection
