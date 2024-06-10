@@ -88,7 +88,7 @@
                         <a class="btn bg-light text-black" href="{{route('dashboard')}}">Dashboard</a>
                         <a class="btn bg-light text-dark" data-bs-toggle="modal" data-bs-target="#modal-create-piso" href="#">Crear un piso</a>
                     {{-- form to create floor --}}
-                       <form action="{{route('floor.destroy', $levels -> id)}}"    method="POST">
+                       <form action="{{route('floor.destroy', $levels -> id)}}"    method="POST" class="form-destroy">
                         @csrf
                         @method('DELETE')
                         <input class="btn btnn-style" type="submit" value="Quitar Piso {{$levels -> floor}}" >
@@ -115,11 +115,12 @@
                                 <a href="{{route('floor.environs', $floor -> floor)}}">Ver ambientes piso {{$floor -> floor}}</a>
                             </div>
                         </div>
+                        
                         @empty
                             <h4 class="alert-agregar-ambiente">Oprima en el botón crear piso para agregar un nuevo piso.</h4>
                         @endforelse
 
-                        
+                        {{$data->links()}} 
                 </div>
 
                 <div class="modal fade dialog-style" id="modal-show-environment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -157,7 +158,7 @@
         @section('main')
             @include('partials.main')
         @endsection
-        
+    @include('components.alerts.alertFloordelete')  
 @section('footer')
         @include('partials.footer')
 @endsection

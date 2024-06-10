@@ -21,6 +21,7 @@ class Schedule extends Model
         "hora_salida",
         "dia",
         "ambiente",
+        "fecha",
         "disponibilidad",
         "code"
     ];

@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('instructor');
             $table->string('telefono');
             $table->string('email');
-            $table->bigInteger('documento');
+            $table->string('documento');
             $table->string('programa');
             $table->time('hora_entrada');
             $table->time('hora_salida');
             $table->string('dia');
             $table->integer('ambiente');
-            $table->boolean('disponibilidad') -> nullable();
+            $table->boolean('disponibilidad')->default(1);
             $table->string('code')->nullable();
             $table->timestamps();
         });

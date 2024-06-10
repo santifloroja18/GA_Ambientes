@@ -13,7 +13,7 @@ class FloorController extends Controller
     public function index()
     {
        
-        $data = Floor::all();
+        $data = Floor::paginate(3);
         $rooms = Environment::all()->where('floor_id', 1);
         $levels = Floor::latest('floor')->first();
         return view('pages.floor.index', compact(['data', 'rooms', 'levels']));
@@ -93,8 +93,8 @@ class FloorController extends Controller
     public function destroy(Floor $id)
     {
        $id->delete();
-       session()->flash('status_message','Piso Eliminado Correctamente.');
-       return to_route('floors');
+       session()->flash('delete_message','Piso actualizado exitosamente.');
+       return back();
 
     }
 }

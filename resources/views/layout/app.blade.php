@@ -47,6 +47,8 @@
             @yield('main')
             @yield('alertDelete')
             @yield('alertEdit')
+            @yield('alertFloorDelete')
+            @yield('alertDeleteElement')
         @yield('codigo-javascript-body')
         @yield('footer')
             

@@ -1,28 +1,27 @@
  {{-- Sección para confirmar eliminar ambiente con alerta bootstrap --}}
- @section('alertEdit')
+ @section('alertFloorDelete')
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  {{-- Validación desde EnvironmentController para mostrar mensaje de ambiente eliminado --}}
- @if(session('update') == true)
+ @if(session('delete') == true)
      <script>
              Swal.fire({
-             title: "Actualizado!",
-             text: "Registro modificado correctamente.",
+             title: "Piso eliminado con exito!",
              icon: "success"
              });
      </script>
  @endif
  <script>
      // validación envio de formulario para eliminar ambiente
-     $('.form-update').submit(function(e){
+     $('.form-destroy').submit(function(e){
        e.preventDefault();
          Swal.fire({
-         title: "Está seguro de modificar la información?",
+         title: "Esta seguro de eliminar este piso?. Se borrara también todos los ambientes y la información relacionada con estos",
          text: "No podra deshacer los cambios!",
          icon: "warning",
          showCancelButton: true,
          confirmButtonColor: "#3085d6",
          cancelButtonColor: "#d33",
-         confirmButtonText: "Sí, actualizar",
+         confirmButtonText: "Sí, eliminar",
          cancelButtonText: "Cancelar",
          }).then((result) => {
          if (result.isConfirmed) {

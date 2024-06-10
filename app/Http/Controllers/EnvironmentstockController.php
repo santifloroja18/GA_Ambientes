@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Exports\EnvironmentstockExport;
 use App\Http\Requests\EnvironmentstockRequest;
 use App\Models\Element;
-use App\Models\Environment;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -22,7 +21,7 @@ class EnvironmentstockController extends Controller
        $items = Element::all();
        $room = DB::select("SELECT *FROM `environments` WHERE `environments`.`environment` = $id");
        
-       $elements = DB::select("SELECT `a`.`id` as `environment_id`, `a`.`environment`,`c`.`id` as `element_id`, `c`.`element_name`,`b`.`id` as `stock_id`, `b`.`cantidad` FROM `environments` as a INNER JOIN `environmentstocks` as b ON a.id=b.environment_id INNER JOIN `elements` as c ON b.`element_id`=c.`id` WHERE a.`environment`= $id");
+       $elements = DB::select("SELECT `a`.`id` as `environment_id`, `a`.`environment`,`c`.`id` as `element_id`, `c`.`element_name`,`b`.`id` as `stock_id`, `b`.`cantidad` FROM `environments` as a INNER JOIN `environmentstocks` as b ON a.id=b.environment_id INNER JOIN `elements` as c ON b.`element_id`=c.`id` WHERE a.`environment`= '$id'");
 
        if($elements)
        {
@@ -56,8 +55,7 @@ class EnvironmentstockController extends Controller
     public function updateStock(EnvironmentstockRequest $request, $id)
     {
       DB::update("UPDATE `environmentstocks` SET `element_id` = $request->element_id, `cantidad` = $request->cantidad WHERE `environmentstocks`.`id` = $id");
-      session()->flash('status_message','Elemento actualizado.');
-      return back();
+      return back()->with('update', true);
     }
 
     public function destroyStock($id)

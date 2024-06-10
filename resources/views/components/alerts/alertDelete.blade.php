@@ -6,7 +6,7 @@
      <script>
              Swal.fire({
              title: "Eliminado!",
-             text: "El ambiente se ha eliminado correctamente.",
+             text: "Registro eliminado con exito.",
              icon: "success"
              });
      </script>
@@ -16,7 +16,7 @@
      $('.form-destroy').submit(function(e){
        e.preventDefault();
          Swal.fire({
-         title: "Estas seguro de eliminar este ambiente?",
+         title: "Esta seguro de eliminar este registro?",
          text: "No podra deshacer los cambios!",
          icon: "warning",
          showCancelButton: true,
