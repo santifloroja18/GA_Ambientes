@@ -1,5 +1,5 @@
  {{-- Sección para confirmar eliminar ambiente con alerta bootstrap --}}
- @section('alertEdit')
+ @section('EditAlert')
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  {{-- Validación desde EnvironmentController para mostrar mensaje de ambiente eliminado --}}
  @if(session('update') == true)

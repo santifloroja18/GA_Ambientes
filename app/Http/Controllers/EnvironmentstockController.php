@@ -62,7 +62,7 @@ class EnvironmentstockController extends Controller
     {
       DB::delete("DELETE FROM `environmentstocks` WHERE `environmentstocks`.`id` = $id");
       session()->flash('status_message','Elemento eliminado correctamente.');
-      return back();
+      return back()->with('delete', true);
     }
 
     public function import()

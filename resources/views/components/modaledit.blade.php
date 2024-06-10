@@ -48,7 +48,6 @@
             </div>
         </div>
     </div>
-    @include('components.alerts.alertEdit')
-   @include('components.alerts.alertDelete')
   </div>
-  
+  @include('components.alerts.alertEdit')
+  @include('components.alerts.alertDelete')

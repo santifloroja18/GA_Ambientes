@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="modal fade dialog-style" id="modaladditem{{$env -> id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+=======
+<div class="modal fade dialog-style" id="modaladdelement{{$env -> id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+>>>>>>> 2d19259a7ba642802f142c3a392562e8708bef50
     <div class="modal-dialog">
         <div class="modal-content ventana-style">
             <div class="modal-header header-style">
