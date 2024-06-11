@@ -46,16 +46,16 @@
             @yield('content')
             @yield('DeleteElementAlert')
             @yield('main')
-<<<<<<< HEAD
+
             @yield('alertDelete')
             @yield('alertEdit')
             @yield('alertFloorDelete')
             @yield('alertDeleteElement')
-=======
+
             @yield('DeleteAlert')
             @yield('EditAlert')
       
->>>>>>> 2d19259a7ba642802f142c3a392562e8708bef50
+
         @yield('codigo-javascript-body')
         @yield('footer')
             

@@ -35,10 +35,10 @@
         </div>
     </div>
   </div>
-<<<<<<< HEAD
-  @include('components.alerts.alertEdit')
-=======
-  @include('components.alerts.alertEdit')
+
+@include('components.alerts.alertEdit')
+
+@include('components.alerts.alertEdit')
 
  
->>>>>>> 2d19259a7ba642802f142c3a392562e8708bef50
+

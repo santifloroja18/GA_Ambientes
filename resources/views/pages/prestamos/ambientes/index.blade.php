@@ -102,20 +102,19 @@
                     });
                    </script>
               </div>    
-<<<<<<< HEAD
+
                  
-=======
->>>>>>> 2d19259a7ba642802f142c3a392562e8708bef50
+
               @endsection
 
               @section('main')
                   @include('partials.main')
               @endsection
               
-<<<<<<< HEAD
-=======
+
+
               @include('components.alerts.alertDelete')
->>>>>>> 2d19259a7ba642802f142c3a392562e8708bef50
+
               @section('footer')
               @include('partials.footer')
               @endsection
